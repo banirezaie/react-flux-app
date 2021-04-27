@@ -13,9 +13,10 @@ function App() {
       <Switch>
         <Route path='/' component={HomePage} exact />
         <Route path='/about' component={AboutPage} />
+        <Route path='/course' component={ManageCoursePage} />
+        <Route path='/course/:slug' component={ManageCoursePage} />
         <Route path='/courses' component={CoursesPage} />
         <Redirect from="/about-page" to="about" />
-        <Route path='/course/:slug' component={ManageCoursePage} />
         <Route component={PageNotFound} />
       </Switch>
     </div>
