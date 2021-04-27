@@ -1,4 +1,5 @@
 import { Prompt } from "react-router-dom"
+import CourseForm from "./CourseForm"
 
 const ManageCoursePage = props => {
   return (
@@ -10,7 +11,8 @@ const ManageCoursePage = props => {
           message='Are you sure you want to leave this page? ha?'
         />
       }
-      {props.match.params.slug}
+
+      <CourseForm />
     </>
   )
 }
