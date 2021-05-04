@@ -1,27 +1,51 @@
-import { Form, Button } from "bootstrap"
-
-const CourseForm = () => {
+const CourseForm = props => {
   return (
-    <Form>
-      <Form.Group controlId='formBasicEmail'>
-        <Form.Label>Email address</Form.Label>
-        <Form.Control type='email' placeholder='Enter email' />
-        <Form.Text className='text-muted'>
-          We'll never share your email with anyone else.
-        </Form.Text>
-      </Form.Group>
+    <form>
+      <div className='form-group'>
+        <label htmlFor='title'>Title</label>
+        <div className='field'>
+          <input
+            id='title'
+            type='text'
+            name='title'
+            className='form-control'
+            onChange={props.changeHandler}
+            value={props.course.title}
+          />
+        </div>
+      </div>
 
-      <Form.Group controlId='formBasicPassword'>
-        <Form.Label>Password</Form.Label>
-        <Form.Control type='password' placeholder='Password' />
-      </Form.Group>
-      <Form.Group controlId='formBasicCheckbox'>
-        <Form.Check type='checkbox' label='Check me out' />
-      </Form.Group>
-      <Button variant='primary' type='submit'>
-        Submit
-      </Button>
-    </Form>
+      <div className='form-group'>
+        <label htmlFor='author'>Author</label>
+        <div className='field'>
+          <select
+            id='author'
+            name='authorId'
+            value={props.course.authorId || ""}
+            className='form-control'
+          >
+            <option value='' />
+            <option value='1'>Cory House</option>
+            <option value='2'>Scott Allen</option>
+          </select>
+        </div>
+      </div>
+
+      <div className='form-group'>
+        <label htmlFor='category'>Category</label>
+        <div className='field'>
+          <input
+            type='text'
+            id='category'
+            name='category'
+            className='form-control'
+            value={props.course.category}
+          />
+        </div>
+      </div>
+
+      <input type='submit' value='Save' className='btn btn-primary' />
+    </form>
   )
 }
 
