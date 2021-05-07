@@ -22,6 +22,7 @@ const CourseForm = props => {
             id='author'
             name='authorId'
             value={props.course.authorId || ""}
+            onChange={props.changeHandler}
             className='form-control'
           >
             <option value='' />
@@ -38,6 +39,7 @@ const CourseForm = props => {
             type='text'
             id='category'
             name='category'
+            onChange={props.changeHandler}
             className='form-control'
             value={props.course.category}
           />
