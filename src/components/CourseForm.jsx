@@ -1,3 +1,5 @@
+import TextInput from "./common/TextInput"
+
 const CourseForm = props => {
   return (
     <form>
