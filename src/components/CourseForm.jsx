@@ -1,22 +1,16 @@
-import TextInput from "./common/TextInput"
+import TextInput from "./common/TextInput";
 
 const CourseForm = props => {
   return (
-    <form>
-      <div className='form-group'>
-        <label htmlFor='title'>Title</label>
-        <div className='field'>
-          <input
-            id='title'
-            type='text'
-            name='title'
-            className='form-control'
-            onChange={props.changeHandler}
-            value={props.course.title}
-          />
-        </div>
-      </div>
-
+    <form onSubmit={props.onSubmit} >
+      <TextInput
+        id='title'
+        label='Title'
+        name='title'
+        error={props.errors.title}
+        onChange={props.onChange}
+        value={props.course.title}
+      />
       <div className='form-group'>
         <label htmlFor='author'>Author</label>
         <div className='field'>
@@ -24,7 +18,7 @@ const CourseForm = props => {
             id='author'
             name='authorId'
             value={props.course.authorId || ""}
-            onChange={props.changeHandler}
+            onChange={props.onChange}
             className='form-control'
           >
             <option value='' />
@@ -32,25 +26,23 @@ const CourseForm = props => {
             <option value='2'>Scott Allen</option>
           </select>
         </div>
+        {props.errors.authorId && (
+          <div className="alert alert-danger">{ props.errors.authorId }</div>
+        )}
       </div>
 
-      <div className='form-group'>
-        <label htmlFor='category'>Category</label>
-        <div className='field'>
-          <input
-            type='text'
-            id='category'
-            name='category'
-            onChange={props.changeHandler}
-            className='form-control'
-            value={props.course.category}
-          />
-        </div>
-      </div>
+      <TextInput
+        id='category'
+        label='Category'
+        name='category'
+        onChange={props.onChange}
+        value={props.course.category}
+        error={props.errors.category}
+      />
 
       <input type='submit' value='Save' className='btn btn-primary' />
     </form>
-  )
+  );
 }
 
 export default CourseForm
