@@ -2,7 +2,7 @@ import TextInput from "./common/TextInput";
 
 const CourseForm = props => {
   return (
-    <form onSubmit={props.onSubmit} >
+    <form onSubmit={props.onSubmit}>
       <TextInput
         id='title'
         label='Title'
@@ -27,7 +27,7 @@ const CourseForm = props => {
           </select>
         </div>
         {props.errors.authorId && (
-          <div className="alert alert-danger">{ props.errors.authorId }</div>
+          <div className='alert alert-danger'>{props.errors.authorId}</div>
         )}
       </div>
 
